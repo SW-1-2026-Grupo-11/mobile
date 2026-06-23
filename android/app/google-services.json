@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "760047474828",
+    "project_id": "supervisor-448ed",
+    "storage_bucket": "supervisor-448ed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760047474828:android:5f8649c8ce23a1b0ad43a9",
+        "android_client_info": {
+          "package_name": "com.proctoring.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFfowKHKHOUC-mJdQrc3JtSHk8wQgjDHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
