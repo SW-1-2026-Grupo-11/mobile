@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (success) {
       if (mounted) {
-        PushNotificationService().initialize(context);
+        PushNotificationService().initialize();
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (_) => const MainLayoutScreen()),

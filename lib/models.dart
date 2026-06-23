@@ -14,11 +14,26 @@ class Entrevista {
   });
 
   factory Entrevista.fromJson(Map<String, dynamic> json) {
+    String nombreCandidato = 'Candidato';
+    
+    // El backend envía una lista de 'invitados' en lugar de un solo candidato
+    if (json['invitados'] != null && json['invitados'] is List && json['invitados'].isNotEmpty) {
+      final invitados = json['invitados'] as List;
+      if (invitados.length == 1) {
+        nombreCandidato = invitados[0]['nombre'] ?? 'Sin nombre';
+      } else {
+        nombreCandidato = '${invitados[0]['nombre']} (+${invitados.length - 1})';
+      }
+    } else {
+      // Fallback por si la estructura cambia
+      nombreCandidato = (json['candidato'] is Map ? json['candidato']['nombre'] : json['candidato_nombre']) ?? 'Sin candidatos asignados';
+    }
+
     return Entrevista(
       id: json['id'] ?? 0,
       titulo: json['titulo'] ?? json['nombre'] ?? 'Entrevista Genérica',
       fecha: json['fecha_programada'] ?? json['fecha'] ?? 'Desconocida',
-      candidato: (json['candidato'] is Map ? json['candidato']['nombre'] : json['candidato_nombre']) ?? 'Candidato',
+      candidato: nombreCandidato,
       avatarUrl: "https://i.pravatar.cc/150?u=${json['id'] ?? 'default'}",
     );
   }
